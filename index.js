@@ -428,7 +428,7 @@ app.get("/products", async (req, res) => {
 app.get("/products/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findOne({ id });
+    const product = await Product.findOne({ _id: id });
 
     if (!product) {
       return res.status(404).json({ error: "Product not found" });
