@@ -9,8 +9,7 @@ const cors = require("cors");
 const app = express();
 app.use(
   cors({
-    origin: allowedOrigins,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: "*",
   })
 );
 app.use(express.json());
