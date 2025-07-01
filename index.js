@@ -11,7 +11,6 @@ app.use(
   cors({
     origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // if you need cookies/auth
   })
 );
 app.use(express.json());
