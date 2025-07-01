@@ -470,8 +470,8 @@ app.post("/addresses", async (req, res) => {
     res.status(500).json({ error: "Error saving address" });
   }
 });
-
-app.post("/addresses/:id", async (req, res) => {
+//update address
+app.put("/addresses/:id", async (req, res) => {
   try {
     const addressId = req.params.id;
     const updatedData = req.body;
