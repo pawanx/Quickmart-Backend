@@ -424,6 +424,24 @@ app.get("/products", async (req, res) => {
   }
 });
 
+//route to search  a product
+app.get("/products/:productId", async (req, res) => {
+  try {
+    const { productId } = req.params;
+    const product = await Product.findOne({ productId });
+
+    if (!product) {
+      return res.status(404).json({ error: "Product not found" });
+    }
+
+    res.status(200).json({ product });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching the product" });
+  }
+});
+
 //function to add new address
 async function createAddress(newAddress) {
   try {
