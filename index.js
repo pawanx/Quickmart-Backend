@@ -425,10 +425,10 @@ app.get("/products", async (req, res) => {
 });
 
 //route to search  a product
-app.get("/products/:productId", async (req, res) => {
+app.get("/products/:id", async (req, res) => {
   try {
-    const { productId } = req.params;
-    const product = await Product.findOne({ productId });
+    const { id } = req.params;
+    const product = await Product.findOne({ id });
 
     if (!product) {
       return res.status(404).json({ error: "Product not found" });
