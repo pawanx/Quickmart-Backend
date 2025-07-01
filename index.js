@@ -7,7 +7,13 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, // if you need cookies/auth
+  })
+);
 app.use(express.json());
 
 initializeDB();
